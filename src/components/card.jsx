@@ -6,7 +6,9 @@ const big_shoulders_display = Big_Shoulders_Display({ subsets: ['latin'], weight
 
 const Card = ({logo, carType, desc, color}) => {
     return (
-        <div className={`bg-${color} flex-1 flex flex-col justify-between gap-5 py-5 md:py-10 px-10`}>
+        <div className={`${carType==='SEDANS' ? 'bg-bright_orange' : 
+            carType==='SUVS' ? 'bg-dark_cyan' : 'bg-very_dark_cyan'} 
+            flex-1 flex flex-col justify-between gap-5 py-5 md:py-10 px-10`}>
             <Image src={logo} alt='logo'/>
             <h1 className={`${big_shoulders_display.className} text-transparent_white
                 text-3xl md:text-4xl`}>
@@ -16,9 +18,11 @@ const Card = ({logo, carType, desc, color}) => {
                 pr-5 text-sm md:text-lg`}>
                 {desc}
             </h1>
-            <button className={`text-${color} ${lexend_deca.className} bg-transparent_white 
-                w-3/4 p-2 md:p-3 rounded-full mt-5 md:mt-16 shadow-lg border-2 hover:border-transparent_white
-                hover:bg-transparent_white/0 hover:text-transparent_white`}>
+            <button className={`${carType==='SEDANS' ? 'text-bright_orange' : 
+                carType==='SUVS' ? 'text-dark_cyan' : 'text-very_dark_cyan'}  
+                ${lexend_deca.className} bg-transparent_white 
+                w-3/4 p-2 md:p-3 rounded-full mt-5 md:mt-16 shadow-lg border-2 border-transparent_white/0
+                hover:border-transparent_white hover:bg-transparent_white/0 hover:text-transparent_white`}>
                 Learn More
             </button>
         </div>
